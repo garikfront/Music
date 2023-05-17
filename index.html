@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+  </head>
+  <body>
+    <div class="ic">
+      <i class="fa fa-music" id="playicon"></i>
+      <i class="fa fa-tv" id="caticon"></i>
+    </div>
+    <div class="container">
+      <div class="categories">
+          <div class="item">Jazz</div>
+          <div class="item">Rap</div>
+          <div class="item">Blues</div>
+          <div class="item">Hip-Hop</div>
+          <div class="item">Pop</div>
+          <div class="item">Funk</div>
+          <div class="item">Classic</div>
+          <div class="item">Rock</div>
+          <div class="item">Electro</div>
+          <div class="item">Rabiz</div>
+      </div>
+      <div class="audio-player">
+        <audio src="" id="audio"></audio>
+        <div class="overlay">
+          <div class="audio-name">
+            <p class="artist-name">Timati</p>
+            <span class="song-name">AMG</span>
+            <p class="song-category">Rap</p>
+          </div>
+          <div class="song-duration">
+            <p class="audio-current-time">00:00</p>
+            <input type="range" value="0" max="100" class="audio-curenttime">
+            <p class="audio-duration">00:00</p>
+          </div>
+          <div class="song-picture"></div>
+          <div class="audio-bar">
+            <div class="play-bar">
+                <i class="fa fa-angle-double-left redo"></i>
+                <i class="fa fa-backward prev"></i>
+                <i class="fa fa-play playpause"></i>
+                <i class="fa fa-forward next"></i>
+                <i class="fa fa-angle-double-right undo"></i>
+            </div>
+            <div class="settings-bar">
+                <i class="fa fa-random random"></i>
+                <button class="interval">
+                    <span>A</span>
+                    <span></span>
+                    <span>B</span>
+                </button>
+                <div class="speed">
+                  Speed
+                    <div class="speed-modal">
+                    <button>0.25</button>
+                    <button>0.75</button>
+                    <button>Normal</button>
+                    <button>1.5</button>
+                    <button>2</button>
+                    </div>
+                </div>
+                <i class="fa fa-repeat repeat"></i>
+            </div>
+            <div class="volume-bar">
+                <i class="fa fa-volume-up"></i>
+                <input type="range" value="100" max="100" class="audio-volume">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="playlist"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+

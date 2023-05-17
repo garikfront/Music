@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+:root {
+    --primary-color: #c6bd62;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: var(--primary-color);
+    border-radius: 100vw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+    border: none;
+    /* font-family: 'Roboto Condensed', sans-serif; */
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    transition: all .2s linear;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh;
+}
+
+.audio-player {
+    height: 100vh;
+    background: url(picture/timati.jpg);
+    background-size: cover !important;
+    background-position: center center !important;
+    border-left: 3px solid var(--primary-color);
+    border-right: 3px solid var(--primary-color);
+    position: relative;
+}
+
+.ic {
+    display: none;
+    align-items: center;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 1rem;
+    z-index: 9999;
+    background: black;
+    padding: 15px;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0;
+}
+
+.ic>i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ic>i:hover {
+    color: var(--primary-color);
+}
+
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.audio-name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.audio-name>p {
+    color: #fff;
+    font-size: 30px;
+}
+
+.audio-name>span {
+    color: var(--primary-color);
+}
+
+.song-duration {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    color: var(--primary-color);
+    gap: 1.5rem;
+}
+
+.song-duration>input {
+    width: 80%;
+    accent-color: var(--primary-color);
+}
+
+.song-duration>p {
+    font-size: 25px;
+}
+
+.song-picture {
+    width: 80%;
+    height: 580px;
+    background: url(picture/timati.jpg);
+    background-size: cover !important;
+    background-position: center top !important;
+    border-radius: 20px;
+    border: 5px groove var(--primary-color);
+}
+
+
+.audio-bar {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.play-bar {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #ffffff2b;
+    border-radius: 100vw;
+}
+
+.play-bar>i {
+    color: var(--primary-color);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.settings-bar {
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.settings-bar>i {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.interval {
+    display: flex;
+    background: transparent;
+    padding: 5px 15px;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+
+.speed {
+    width: 150px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    color: #000;
+    cursor: pointer;
+    border-radius: 100vw;
+}
+
+.speed-modal {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 25px;
+    gap: .5rem;
+    background: var(--primary-color);
+    padding: 10px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    border-radius: 10px;
+}
+
+.open-modal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.interval>span:nth-child(odd) {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interval>span:nth-child(2) {
+    width: 10%;
+    height: 5px;
+    background: white;
+}
+
+.speed::-webkit-scrollbar {
+    width: 6px;
+    background: black;
+}
+
+.speed::-webkit-scrollbar-thumb {
+    width: 6px;
+    background: var(--primary-color);
+    border: 2px solid black;
+}
+
+.speed-modal>button {
+    background: var(--primary-color);
+    padding: 5px 15px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.589);
+    color: white;
+    box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+.speed>button:hover {
+    background: white;
+}
+
+.volume-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem
+}
+
+.volume-bar>i {
+    color: white;
+}
+
+.volume-bar>input {
+    width: 60%;
+    accent-color: var(--primary-color);
+}
+
+.active-speed {
+    background: #111 !important;
+}
+
+.playlist {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: auto;
+    gap: 1rem;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 8888;
+}
+
+.playlist-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 2%;
+    background: #000;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateX(-1000px);
+    animation: show .5s linear 1 forwards;
+}
+
+.playlist-item:hover {
+    background: rgba(106, 106, 106, 0.7);
+}
+
+@keyframes show {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.playlist-item h2 {
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+.playlist-item>img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.for-name {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.playlist-item>span {
+    width: 200px;
+    text-align: right;
+}
+
+.for-name>span {
+    font-size: 14px;
+}
+
+.categories {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.item {
+    background-size: cover !important;
+    background-position: center center !important;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 25px;
+    border: 2px solid white;
+    text-shadow: 0 0 2px #000, 0 0 5px #000, 0 0 10px #000, 0 0 20px #000, 0 0 30px #000;
+    filter: brightness(0.3);
+}
+
+.activeitem {
+    filter: none;
+}
+
+.active-item {
+    background: #625e398f;
+}
+
+.repeatAnimtion {
+    animation: repeating 3s linear infinite;
+}
+
+@keyframes repeating {
+    to {
+        transform: rotate(360deg);
+        color: var(--primary-color);
+    }
+}
+
+.active-playlist {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+    display: flex !important;
+}
+
+.active-category {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+}
+
+@media screen and (max-width:990px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .playlist {
+        position: absolute;
+        background: #000;
+        overflow-y: auto;
+        height: fit-content;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        display: none;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        z-index: 5555;
+        width: 100%;
+    }
+
+    .categories {
+        position: absolute;
+        background: #000;
+        height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        top: 0;
+        left: 0;
+        z-index: 5555;
+        width: 100%;
+    }
+
+    .ic {
+        display: flex;
+    }
+
+    .audio-player {
+        border: none;
+    }
+
+    .song-picture {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+    }
+
+    .playlist-item {
+        row-gap: 2rem;
+    }
+}
